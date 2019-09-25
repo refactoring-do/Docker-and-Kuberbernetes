@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vita-strong-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: vita-strong-api
+  ports:
+  - protocol: TCP
+    targetPort: 3000
+    port: 8080

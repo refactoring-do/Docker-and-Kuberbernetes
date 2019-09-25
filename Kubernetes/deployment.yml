@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vita-strong-deploy
+spec:
+  selector:
+    matchLabels:
+      app: vita-strong-api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: vita-strong-api
+    spec:
+      containers:
+        - name: vita-strong-api
+          image: refactoringdo/vita-xtrong-api
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
